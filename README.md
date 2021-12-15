@@ -1,27 +1,27 @@
 # ASGNN
-Attentive Sequential Model Based on Graph Neural Network for Next POI Recommendation
+Codes of paper "Attentive Sequential Model Based on Graph Neural Network for Next POI Recommendation"
 
 # datasets
 1. dictory '''data''' contains three datasets
 2. dictory '''data_process''' is the data processing
 3. references：The original dataset we used is from paper ”On information coverage for location category based point-of-interest recommendation “, the download address of this data set is https://www.ntu.edu.sg/home/gaocong/datacode.htm .If you use this dataset, please quote
-'''
+```
 @inproceedings{chen2015information,
   title={On information coverage for location category based point-of-interest recommendation},
   author={Chen, Xuefeng and Zeng, Yifeng and Cong, Gao and Qin, Shengchao and Xiang, Yanping and Dai, Yuanshun},
   booktitle={Twenty-ninth AAAI conference on artificial intelligence},
   year={2015}
 }
-'''
+```
 
 # Run
-'''
+```
 python main.py
-'''
+```
 
 # Reference
 If you make advantage of the ASGNN model or use the datasets released in our paper, please cite the following in your manuscript:
-'''
+```
 @article{wang2021attentive,
   title={Attentive sequential model based on graph neural network for next poi recommendation},
   author={Wang, Dongjing and Wang, Xingliang and Xiang, Zhengzhe and Yu, Dongjin and Deng, Shuiguang and Xu, Guandong},
@@ -32,4 +32,4 @@ If you make advantage of the ASGNN model or use the datasets released in our pap
   year={2021},
   publisher={Springer}
 }
-'''
+```

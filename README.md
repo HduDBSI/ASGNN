@@ -14,7 +14,7 @@ Codes of paper "Attentive Sequential Model Based on Graph Neural Network for Nex
 }
 ```
 
-# Enviroment
+# Requirements
 - Python 3.6
 - networkx 2.5
 - tensorflow_gpu 1.15

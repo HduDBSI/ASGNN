@@ -2,7 +2,7 @@
 Codes of paper "Attentive Sequential Model Based on Graph Neural Network for Next POI Recommendation"
 
 # Datasets
-0. Because the data file is too large, we will place it on google drive. The specific address is:https://drive.google.com/drive/folders/1Fs17jeBLEqZ98HFKHXAOGA0qyPadhCBc?usp=sharing
+0. Because the data file is too large, we place it on google drive. The address is:https://drive.google.com/drive/folders/1Fs17jeBLEqZ98HFKHXAOGA0qyPadhCBc?usp=sharing
 1. directory ```data``` contains three datasets
 2. directory ```data_process``` is the data processing
 3. references：The original dataset we used is from paper ”On information coverage for location category based point-of-interest recommendation “, the download address of this data set is https://www.ntu.edu.sg/home/gaocong/datacode.htm .If you use this dataset, please cite

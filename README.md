@@ -2,8 +2,8 @@
 Codes of paper "Attentive Sequential Model Based on Graph Neural Network for Next POI Recommendation"
 
 # datasets
-1. dictory '''data''' contains three datasets
-2. dictory '''data_process''' is the data processing
+1. dictory ```data``` contains three datasets
+2. dictory ```data_process``` is the data processing
 3. references：The original dataset we used is from paper ”On information coverage for location category based point-of-interest recommendation “, the download address of this data set is https://www.ntu.edu.sg/home/gaocong/datacode.htm .If you use this dataset, please quote
 ```
 @inproceedings{chen2015information,

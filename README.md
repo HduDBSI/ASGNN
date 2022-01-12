@@ -5,13 +5,14 @@ Codes of paper "Attentive Sequential Model Based on Graph Neural Network for Nex
 0. Because the data file is too large, we place it on google drive. The address is:https://drive.google.com/drive/folders/1Fs17jeBLEqZ98HFKHXAOGA0qyPadhCBc?usp=sharing
 1. directory ```data``` contains three datasets
 2. directory ```data_process``` is the data processing
-3. references：The original dataset we used is from paper ”On information coverage for location category based point-of-interest recommendation “, the download address of this data set is https://www.ntu.edu.sg/home/gaocong/datacode.htm .If you use this dataset, please cite
+3. references：The original dataset we used is from paper ”Time-aware point-of-interest recommendation“, the download address of this data set is https://www.ntu.edu.sg/home/gaocong/datacode.htm .If you use this dataset, please cite
 ```
-@inproceedings{chen2015information,
-  title={On information coverage for location category based point-of-interest recommendation},
-  author={Chen, Xuefeng and Zeng, Yifeng and Cong, Gao and Qin, Shengchao and Xiang, Yanping and Dai, Yuanshun},
-  booktitle={Twenty-ninth AAAI conference on artificial intelligence},
-  year={2015}
+@inproceedings{yuan2013time,
+  title={Time-aware point-of-interest recommendation},
+  author={Yuan, Quan and Cong, Gao and Ma, Zongyang and Sun, Aixin and Thalmann, Nadia Magnenat-},
+  booktitle={Proceedings of the 36th international ACM SIGIR conference on Research and development in information retrieval},
+  pages={363--372},
+  year={2013}
 }
 ```
 

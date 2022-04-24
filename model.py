@@ -1,9 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# @Time : 2018/10/16 4:36
-# @Author : {ZM7}
-# @File : model.py
-# @Software: PyCharm
 import tensorflow as tf
 import math
 
@@ -15,9 +9,9 @@ class Model(object):
         self.batch_size = batch_size
         self.mask = tf.placeholder(dtype=tf.float32)
         self.pre_mask = tf.placeholder(dtype=tf.float32)
-        self.alias = tf.placeholder(dtype=tf.int32)  # 给给每个输入重新
+        self.alias = tf.placeholder(dtype=tf.int32)
         self.pre_alias = tf.placeholder(dtype=tf.int32)
-        self.item = tf.placeholder(dtype=tf.int32)  # 重新编号的序列构成的矩阵
+        self.item = tf.placeholder(dtype=tf.int32)
         self.tar = tf.placeholder(dtype=tf.int32)
         self.user = tf.placeholder(dtype=tf.int32)
         self.nonhybrid = nonhybrid
@@ -56,12 +50,8 @@ class Model(object):
         user_embedding = tf.nn.embedding_lookup(user_matrix, self.user)
         user_embedding = tf.reshape(user_embedding, [self.batch_size, self.out_size])
 
-        #这里的pre要跟item 投入训练的样子对应
         pre_embedding = tf.nn.embedding_lookup(item_matrix, self.pre)
         pre_embedding = tf.reshape(pre_embedding, [self.batch_size, -1, self.out_size])
-        # rm = tf.reduce_sum(self.pre_mask, 1)
-        # last_id = tf.gather_nd(self.pre_alias, tf.stack([tf.range(self.batch_size), tf.to_int32(rm) - 1], axis=1))
-        # last_h = tf.gather_nd(pre_embedding, tf.stack([tf.range(self.batch_size), last_id], axis=1))
         seq_pre = tf.stack([tf.nn.embedding_lookup(pre_embedding[i], self.pre_alias[i]) for i in range(self.batch_size)],
                          axis=0)  # batch_size*T*d
         seq = tf.matmul(tf.reshape(seq_pre, [-1, self.out_size]), self.nasr_w1)
@@ -97,7 +87,7 @@ class Model(object):
             ma = tf.reduce_sum(tf.reshape(coef2, [self.batch_size, -1, 1]) * seq_h, 1)
             logits = tf.matmul(ma, b, transpose_b=True)
         loss = tf.reduce_mean(
-            tf.nn.sparse_softmax_cross_entropy_with_logits(labels=self.tar - 1, logits=logits))#todo
+            tf.nn.sparse_softmax_cross_entropy_with_logits(labels=self.tar - 1, logits=logits))
         self.vars = tf.trainable_variables()
         if train:
             lossL2 = tf.add_n([tf.nn.l2_loss(v) for v in self.vars if v.name not
@@ -150,7 +140,6 @@ class GGNN(Model):
         self.sess.run(tf.global_variables_initializer())
 
     def ggnn(self):
-        # 抄这里第一句和返回
         fin_state = tf.nn.embedding_lookup(self.embedding, self.item)
         cell = tf.contrib.rnn.GRUCell(self.out_size)
         # cell = tf.nn.rnn_cell.GRUCell(self.out_size)

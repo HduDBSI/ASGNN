@@ -1,5 +1,5 @@
 # ASGNN
-Codes of paper "Attentive Sequential Model Based on Graph Neural Network for Next POI Recommendation"
+Codes of paper "ASGNN"
 
 # Datasets
 0. Because the data file is too large, we place it on google drive. The address is:https://drive.google.com/drive/folders/1Fs17jeBLEqZ98HFKHXAOGA0qyPadhCBc?usp=sharing

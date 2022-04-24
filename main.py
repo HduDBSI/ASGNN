@@ -1,10 +1,3 @@
-#!/usr/bin/env python
-# -*- coding: utf-8 -*-
-# @Time : 2018/10/17 5:40
-# @Author : {ZM7}
-# @File : main.py
-# @Software: PyCharm
-
 from __future__ import division
 import numpy as np
 from model import *
@@ -27,7 +20,7 @@ parser.add_argument('--epoch', type=int, default=30, help='number of epochs to t
 parser.add_argument('--batchSize', type=int, default=100, help='input batch size')
 parser.add_argument('--hiddenSize', type=int, default=80, help='hidden state size')
 parser.add_argument('--l2', type=float, default=1e-5, help='l2 penalty')
-parser.add_argument('--lr', type=float, default=0.001, help='learning rate')
+parser.add_argument('--lr', type=float, default=0.002, help='learning rate')
 parser.add_argument('--step', type=int, default=1, help='gnn propogation steps')
 parser.add_argument('--nonhybrid', action='store_false', help='global preference')
 parser.add_argument('--lr_dc', type=float, default=0.1, help='learning rate decay rate')

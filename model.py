@@ -35,14 +35,14 @@ class Model(object):
         out = tf.reduce_sum(tf.multiply(pre_sessions_embedding, tf.transpose(weight)), axis=0)
         return out
 
-    def attention_level_two(self, user_embedding, long_user_embedding, current_session_embedding):
+    def attention_level_two(self, user_embedding, pre_l, pre_g):
 
         weight = tf.nn.softmax(tf.transpose(tf.matmul(
-            tf.concat([current_session_embedding, tf.expand_dims(long_user_embedding, axis=0)], 0),
+            tf.concat([pre_l, tf.expand_dims(pre_g, axis=0)], 0),
             tf.transpose(user_embedding))))
 
         out = tf.reduce_sum(
-            tf.multiply(tf.concat([current_session_embedding, tf.expand_dims(long_user_embedding, axis=0)], 0),
+            tf.multiply(tf.concat([pre_l, tf.expand_dims(pre_g, axis=0)], 0),
                         tf.transpose(weight)), axis=0)
         return out
 
@@ -73,11 +73,10 @@ class Model(object):
             self.mask, [-1, 1])
 
 
-
         b = self.embedding[1:]
         if not self.nonhybrid:
-            ma = tf.concat([tf.reduce_sum(tf.reshape(coef1, [self.batch_size, -1, 1]) * seq_pre, 1),
-                            tf.reduce_sum(tf.reshape(coef2, [self.batch_size, -1, 1]) * seq_h, 1)], -1)
+
+            ma = self.attention_level_two(user_embedding,coef1,coef2)
 
             self.B = tf.get_variable('B', [2 * self.out_size, self.out_size],
                                      initializer=tf.random_uniform_initializer(-self.stdv, self.stdv))
